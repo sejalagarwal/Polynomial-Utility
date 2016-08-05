@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Map.Entry;
 
-public class Polynomial {
+class Polynomial {
 	HashMap<Integer, Double> polynomial;
 
 	public Polynomial() {
@@ -64,7 +64,7 @@ public class Polynomial {
 		return product;
 	}
 
-	public toOutputFormat(String preExponent, String postExponent){
+	public String toOutputFormat(String preExponent, String postExponent){
 		String out = "";
 		for (Integer exponent : polynomial.keySet())
 			if ((int) getCoefficient(exponent) != 0)
@@ -98,6 +98,9 @@ public class Polynomial {
 		final double[] coefficients2 = { 1, 5 };
 		Polynomial p1 = new Polynomial(exponents, coefficients2);
 		Polynomial p2 = new Polynomial(exponents, coefficients);
-		System.out.println(p1.multiply(p2));
+		System.out.println("Multiplication : "+p1.multiply(p2));
+		System.out.println("Addition : "+p1.add(p2));
+		System.out.println("Subtraction : "+p1.subtract(p2));
+		
 	}
 }
