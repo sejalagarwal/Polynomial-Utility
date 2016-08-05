@@ -64,22 +64,32 @@ public class Polynomial {
 		return product;
 	}
 
+	public toOutputFormat(String preExponent, String postExponent){
+		String out = "";
+		for (Integer exponent : polynomial.keySet())
+			if ((int) getCoefficient(exponent) != 0)
+				out += getCoefficient(exponent) + "X" + preExponent + exponent + postExponent +" ";
+		return out;
+	}
+	
 	public String toString() {
+		return toOutputFormat("^", "");
+		/*
 		String out = "";
 		for (Integer exponent : polynomial.keySet())
 			if ((int) getCoefficient(exponent) != 0)
 				out += getCoefficient(exponent) + "X^" + exponent + "\t";
 		return out;
+		*/
 	}
 
 	public String toLatex() {
-		String out = "";
+		String out = "\\(" + toString() + "\\)";
 		return out;
 	}
 
 	public String toHTML() {
-		String out = "";
-		return out;
+		return toOutputFormat("<sup>","</sup>");
 	}
 
 	public static void main(String[] args) {
