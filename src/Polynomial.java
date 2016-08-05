@@ -72,8 +72,8 @@ class Polynomial {
 			out += getCoefficient(exponent) + "X" + preExponent + exponent + postExponent +" ";
 				
 		}
-		if(out.startsWith("+")
-			return out.subString(1);
+		if(out.startsWith("+"))
+			return out.substring(1);
 		return out;
 	}
 	
