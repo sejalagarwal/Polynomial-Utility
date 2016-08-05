@@ -66,9 +66,14 @@ class Polynomial {
 
 	public String toOutputFormat(String preExponent, String postExponent){
 		String out = "";
-		for (Integer exponent : polynomial.keySet())
-			if ((int) getCoefficient(exponent) != 0)
-				out += getCoefficient(exponent) + "X" + preExponent + exponent + postExponent +" ";
+		for (Integer exponent : polynomial.keySet()){
+			if (getCoefficient(exponent) > 0)
+				out += "+";
+			out += getCoefficient(exponent) + "X" + preExponent + exponent + postExponent +" ";
+				
+		}
+		if(out.startsWith("+")
+			return out.subString(1);
 		return out;
 	}
 	
@@ -89,7 +94,7 @@ class Polynomial {
 	}
 
 	public String toHTML() {
-		return toOutputFormat("<sup>","</sup>");
+		return "<font size=\"20\">" + toOutputFormat("<sup>","</sup>") + "</font>";
 	}
 
 	public static void main(String[] args) {
