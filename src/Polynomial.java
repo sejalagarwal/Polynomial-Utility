@@ -67,9 +67,15 @@ class Polynomial {
 	public String toOutputFormat(String preExponent, String postExponent){
 		String out = "";
 		for (Integer exponent : polynomial.keySet()){
+			String ex = "";
+			if(exponent != 1)
+				ex += exponent;
 			if (getCoefficient(exponent) > 0)
 				out += "+";
-			out += getCoefficient(exponent) + "X" + preExponent + exponent + postExponent +" ";
+			if(getCoefficient(exponent) != 1)
+				out += getCoefficient(exponent);
+			if(getCoefficient(exponent) != 0)
+				out += "X" + preExponent + ex + postExponent +" ";
 				
 		}
 		if(out.startsWith("+"))
